@@ -91,6 +91,7 @@ func (r *RestaurantService) RateRestaurant(name string, rating int, comment stri
 		Rating:  rating,
 	})
 
+	r.restaurants[name] = rest
 	return nil
 }
 

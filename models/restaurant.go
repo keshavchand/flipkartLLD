@@ -24,10 +24,13 @@ type Restaurant struct {
 
 func (r *Restaurant) ToServiceable() ServiceableRestaurant {
 	rating := float32(0)
-	for _, rate := range r.Ratings {
-		rating += float32(rate.Rating)
+	if len(r.Ratings) > 0 {
+		for _, rate := range r.Ratings {
+			rating += float32(rate.Rating)
+		}
+
+		rating /= float32(len(r.Ratings))
 	}
-	rating /= float32(len(r.Ratings))
 	return ServiceableRestaurant{
 		Name:     r.Name,
 		FoodItem: r.FoodItem,

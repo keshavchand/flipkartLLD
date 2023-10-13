@@ -204,7 +204,7 @@ func TestListRestaurants(t *testing.T) {
 
 	for i := 0; i < len(expected); i++ {
 		if serviceablerestaurants[i].Name != expected[i] {
-			t.Fatalf("Expected pos %d be %s got %s", i, expected[i], serviceablerestaurants[i].Name)
+			t.Errorf("Expected pos %d be %s got %s", i, expected[i], serviceablerestaurants[i].Name)
 		}
 	}
 
